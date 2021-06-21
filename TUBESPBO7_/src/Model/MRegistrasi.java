@@ -3,17 +3,17 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package tubespbo7_;
+package Model;
 
 /**
  *
- * @author Lenovo
+ * @author afan
  */
-public class registrasi {
+public class MRegistrasi {
     private int id;
     private String nama, email, nohp, pass;
     
-    registrasi (int id, String nama, String email, String nohp, String pass){
+    MRegistrasi (int id, String nama, String email, String nohp, String pass){
         this.id = id;
         this.nama = nama;
         this.email = email;
