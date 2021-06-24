@@ -40,17 +40,17 @@ public class Login extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(665, 447));
 
-        jPanel1.setBackground(new java.awt.Color(249, 223, 220));
+        jPanel1.setBackground(new java.awt.Color(10, 129, 171));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(59, 59, 59));
+        jLabel1.setForeground(new java.awt.Color(240, 240, 240));
         jLabel1.setText("Login");
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(59, 59, 59));
+        jLabel2.setForeground(new java.awt.Color(240, 240, 240));
         jLabel2.setText("Let's Get Started");
 
-        jPanel2.setBackground(new java.awt.Color(10, 129, 171));
+        jPanel2.setBackground(new java.awt.Color(249, 223, 220));
 
         Username_Field.setText("Username");
         Username_Field.addMouseListener(new java.awt.event.MouseAdapter() {
