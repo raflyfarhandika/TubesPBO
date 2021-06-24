@@ -38,7 +38,6 @@ public class Login extends javax.swing.JFrame {
         Register_Button = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(665, 447));
 
         jPanel1.setBackground(new java.awt.Color(10, 129, 171));
 
@@ -160,12 +159,10 @@ public class Login extends javax.swing.JFrame {
 
     private void Username_FieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Username_FieldActionPerformed
         // TODO add your handling code here:
-        
     }//GEN-LAST:event_Username_FieldActionPerformed
 
     private void Password_FieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Password_FieldActionPerformed
         // TODO add your handling code here:
-        
     }//GEN-LAST:event_Password_FieldActionPerformed
 
     private void Username_FieldMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Username_FieldMouseClicked
