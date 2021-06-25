@@ -256,7 +256,14 @@ public class UIregister extends javax.swing.JFrame {
             ps.setString(4, Email.getText());
             ps.setString(5, Hp.getText());
             ps.execute();
+            
             JOptionPane.showMessageDialog(this, "Data Akun Tersimpan, Akun Terbuat");
+            
+            Login Login = new Login();
+            Login.setVisible(true);
+            Login.pack();
+            Login.setLocationRelativeTo(null);
+            dispose();
         }catch (SQLException e){
             JOptionPane.showMessageDialog(null, e.getMessage());
         }
