@@ -6,6 +6,7 @@
 package tubespbo7_;
 
 import java.sql.*;
+import javax.swing.JOptionPane;
 /**
  *
  * @author Rafly Farhandika
@@ -21,7 +22,7 @@ public class DB_Connection {
         try {
             conn = DriverManager.getConnection(DB_url, DB_User, DB_Pass);
         } catch (Exception e){
-            e.printStackTrace();
+            JOptionPane.showMessageDialog(null, e.getMessage());
         }
     } 
 }

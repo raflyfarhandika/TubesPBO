@@ -38,7 +38,7 @@ public class UIregister extends javax.swing.JFrame {
         Nama = new javax.swing.JTextField();
         Email = new javax.swing.JTextField();
         Hp = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        RegisButton = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
@@ -92,11 +92,16 @@ public class UIregister extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setFont(new java.awt.Font("Tw Cen MT", 1, 13)); // NOI18N
-        jButton1.setText("Registrasi");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        RegisButton.setFont(new java.awt.Font("Tw Cen MT", 1, 13)); // NOI18N
+        RegisButton.setText("Registrasi");
+        RegisButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                RegisButtonMouseClicked(evt);
+            }
+        });
+        RegisButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                RegisButtonActionPerformed(evt);
             }
         });
 
@@ -130,7 +135,7 @@ public class UIregister extends javax.swing.JFrame {
                         .addGap(75, 75, 75))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1)
+                .addComponent(RegisButton)
                 .addGap(142, 142, 142))
         );
         jPanel1Layout.setVerticalGroup(
@@ -160,7 +165,7 @@ public class UIregister extends javax.swing.JFrame {
                             .addComponent(Hp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(jLabel3))
                 .addGap(47, 47, 47)
-                .addComponent(jButton1)
+                .addComponent(RegisButton)
                 .addContainerGap(63, Short.MAX_VALUE))
         );
 
@@ -206,9 +211,9 @@ public class UIregister extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void RegisButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegisButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_RegisButtonActionPerformed
 
     private void IDMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_IDMouseClicked
         // TODO add your handling code here:
@@ -234,6 +239,10 @@ public class UIregister extends javax.swing.JFrame {
         // TODO add your handling code here:
         Hp.setText(" ");
     }//GEN-LAST:event_HpMouseClicked
+
+    private void RegisButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RegisButtonMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_RegisButtonMouseClicked
 
     /**
      * @param args the command line arguments
@@ -276,7 +285,7 @@ public class UIregister extends javax.swing.JFrame {
     private javax.swing.JTextField ID;
     private javax.swing.JTextField Nama;
     private javax.swing.JTextField Password;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton RegisButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
