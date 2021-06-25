@@ -5,6 +5,11 @@
  */
 package tubespbo7_;
 
+import java.sql.*;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
+
 /**
  *
  * @author Rafly Farhandika
@@ -16,6 +21,8 @@ public class UIKeranjang extends javax.swing.JFrame {
      */
     public UIKeranjang() {
         initComponents();
+        FillTable();
+        TotalHarga();
     }
 
     /**
@@ -32,9 +39,11 @@ public class UIKeranjang extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        Table = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        TotalHarga = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -63,36 +72,22 @@ public class UIKeranjang extends javax.swing.JFrame {
 
         jPanel3.setBackground(new java.awt.Color(249, 223, 220));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        Table.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+
             },
             new String [] {
-                "Nama Barang", "Harga", "Jumlah"
+                "Nama_Barang", "Harga", "Jumlah", "Kategori"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(Table);
 
         jButton1.setText("Kembali Ke Toko");
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
+            }
+        });
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -100,11 +95,18 @@ public class UIKeranjang extends javax.swing.JFrame {
         });
 
         jButton2.setText("Lanjut Ke Pembayaran");
+        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton2MouseClicked(evt);
+            }
+        });
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
+
+        jLabel2.setText("Total");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -115,17 +117,29 @@ public class UIKeranjang extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 704, Short.MAX_VALUE)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(jLabel2)
+                                .addGap(26, 26, 26)))
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, 152, Short.MAX_VALUE)
+                            .addComponent(TotalHarga))))
                 .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(95, 95, 95)
+                .addGap(71, 71, 71)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 97, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(TotalHarga, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 67, Short.MAX_VALUE)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -169,6 +183,77 @@ public class UIKeranjang extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
+        // TODO add your handling code here:
+        UIPembayaran bayar = new UIPembayaran();
+        bayar.setVisible(true);
+        bayar.pack();
+        bayar.setLocationRelativeTo(null);
+        dispose();
+    }//GEN-LAST:event_jButton2MouseClicked
+
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+        // TODO add your handling code here:
+        UIHalamanUtama HU = new UIHalamanUtama();
+        HU.setVisible(true);
+        HU.pack();
+        HU.setLocationRelativeTo(null);
+        dispose();
+    }//GEN-LAST:event_jButton1MouseClicked
+
+    
+    private void FillTable(){
+        try{
+            DB_Connection.Connection();
+            Statement st = DB_Connection.conn.createStatement();
+            String sql = "select * from pembelian";
+            ResultSet rs = st.executeQuery(sql);
+            
+            while(rs.next()){
+                String _nama = rs.getString("nama");
+                String _harga = String.valueOf(rs.getInt("harga"));
+                String _jumlah = String.valueOf(rs.getInt("jumlah"));
+                String _kategori = rs.getString("kategori");
+                
+                String tbData[] = {_nama, _harga, _jumlah, _kategori};
+                    DefaultTableModel tblModel = (DefaultTableModel)Table.getModel();
+                    tblModel.addRow(tbData);
+            }
+        }catch (Exception e){
+            JOptionPane.showMessageDialog(null, e.getMessage());
+        }
+    
+    }
+    
+    int total = 0;
+    
+    public int getTotal(){
+        return total;
+    }
+    
+    public void TotalHarga(){
+        try{
+            
+            DB_Connection.Connection();
+            Statement st = DB_Connection.conn.createStatement();
+            String sql = "select * from pembelian";
+            ResultSet rs = st.executeQuery(sql);
+            
+            while(rs.next()){
+                int hargasementara;
+                String _nama = rs.getString("nama");
+                int _harga = rs.getInt("harga");
+                int _jumlah = rs.getInt("jumlah");
+                String _kategori = rs.getString("kategori");
+                
+                hargasementara = _harga * _jumlah;
+                total = total + hargasementara;
+            }
+            TotalHarga.setText(String.valueOf(total));
+        }catch (Exception e){
+            JOptionPane.showMessageDialog(null, e.getMessage());
+        }
+    }
     /**
      * @param args the command line arguments
      */
@@ -205,13 +290,15 @@ public class UIKeranjang extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTable Table;
+    private javax.swing.JTextField TotalHarga;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 }

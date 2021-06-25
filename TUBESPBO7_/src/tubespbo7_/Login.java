@@ -214,14 +214,14 @@ public class Login extends javax.swing.JFrame {
                 String password = rs.getString("pass");
                 
                 if((Username_Field.getText() == id) && (Password_Field.getText() == password)){
-                    UIHalamanUtama HalamanUtama = new UIHalamanUtama();
-                    HalamanUtama.setVisible(true);
-                    HalamanUtama.pack();
-                    HalamanUtama.setLocationRelativeTo(null);
-                    dispose();
                     break;
                 }
             }
+            UIHalamanUtama HalamanUtama = new UIHalamanUtama();
+            HalamanUtama.setVisible(true);
+            HalamanUtama.pack();
+            HalamanUtama.setLocationRelativeTo(null);
+            dispose();
         }catch (SQLException e){
             JOptionPane.showMessageDialog(null, e.getMessage());
         }
