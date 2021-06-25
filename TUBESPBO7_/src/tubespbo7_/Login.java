@@ -193,7 +193,7 @@ public class Login extends javax.swing.JFrame {
 
     private void Register_ButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Register_ButtonMouseClicked
         // TODO add your handling code here:
-        UIregister register = new UIregister();
+        UIregister register = new UIregister(); //deklarasi object UIregister 
         register.setVisible(true);
         register.pack();
         register.setLocationRelativeTo(null);
@@ -204,16 +204,16 @@ public class Login extends javax.swing.JFrame {
         // TODO add your handling code here:
         
         try {
-            DB_Connection.Connection();
-            Statement st = DB_Connection.conn.createStatement();
+            DB_Connection.Connection(); //mengambil data dari DB
+            Statement st = DB_Connection.conn.createStatement(); //deklarasi
             String sql = "SELECT * FROM userdata";
-            ResultSet rs = st.executeQuery(sql);
+            ResultSet rs = st.executeQuery(sql); //bertujuan untuk mengexecute querynya
             
-            while(rs.next()){
-                String id = rs.getString("id");
+            while(rs.next()){ //
+                String id = rs.getString("id");//mengambil data di kolom id di db
                 String password = rs.getString("pass");
                 
-                if((Username_Field.getText() == id) && (Password_Field.getText() == password)){
+                if((Username_Field.getText() == id) && (Password_Field.getText() == password)){ //untuk memberhentikan si while
                     break;
                 }
             }
