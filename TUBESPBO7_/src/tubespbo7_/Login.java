@@ -82,6 +82,11 @@ public class Login extends javax.swing.JFrame {
         jLabel3.setText("or");
 
         Register_Button.setText("Register");
+        Register_Button.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Register_ButtonMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -174,6 +179,15 @@ public class Login extends javax.swing.JFrame {
         // TODO add your handling code here:
         Password_Field.setText(" ");
     }//GEN-LAST:event_Password_FieldMouseClicked
+
+    private void Register_ButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Register_ButtonMouseClicked
+        // TODO add your handling code here:
+        UIregister register = new UIregister();
+        register.setVisible(true);
+        register.pack();
+        register.setLocationRelativeTo(null);
+        dispose();
+    }//GEN-LAST:event_Register_ButtonMouseClicked
 
     /**
      * @param args the command line arguments

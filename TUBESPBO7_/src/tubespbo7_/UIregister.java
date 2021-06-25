@@ -5,6 +5,10 @@
  */
 package tubespbo7_;
 
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author ASUS
@@ -242,6 +246,20 @@ public class UIregister extends javax.swing.JFrame {
 
     private void RegisButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RegisButtonMouseClicked
         // TODO add your handling code here:
+        try{
+            DB_Connection.Connection();
+            String sql = "INSERT INTO userdata(id,pass,email,nama,no_hp) VALUES(?,?,?,?,?)";
+            PreparedStatement ps = DB_Connection.conn.prepareStatement(sql);
+            ps.setString(1, ID.getText());
+            ps.setString(2, Password.getText());
+            ps.setString(3, Nama.getText());
+            ps.setString(4, Email.getText());
+            ps.setString(5, Hp.getText());
+            ps.execute();
+            JOptionPane.showMessageDialog(this, "Data Akun Tersimpan, Akun Terbuat");
+        }catch (SQLException e){
+            JOptionPane.showMessageDialog(null, e.getMessage());
+        }
     }//GEN-LAST:event_RegisButtonMouseClicked
 
     /**

@@ -12,16 +12,17 @@ import javax.swing.JOptionPane;
  * @author Rafly Farhandika
  */
 public class DB_Connection {
-    static final String DB_url = "jdbc:mysql://localhost/tubespbo";
+    static final String DB_url = "jdbc:mysql://localhost/tubes";
     static final String DB_User = "root";
     static final String DB_Pass = "";
     static Connection conn;
+    
     //PreparedStatement ps;
     
     public static void Connection(){
         try {
             conn = DriverManager.getConnection(DB_url, DB_User, DB_Pass);
-        } catch (Exception e){
+        } catch (SQLException e){
             JOptionPane.showMessageDialog(null, e.getMessage());
         }
     } 

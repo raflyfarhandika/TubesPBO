@@ -16,6 +16,11 @@ public class TUBESPBO7_ {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        Login Login = new Login();
+        Login.setVisible(true);
+        Login.pack();
+        Login.setLocationRelativeTo(null);
+        Login.setDefaultCloseOperation(Login.EXIT_ON_CLOSE);
     }
     
 }
