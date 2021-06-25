@@ -241,27 +241,27 @@ public class UIregister extends javax.swing.JFrame {
 
     private void IDMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_IDMouseClicked
         // TODO add your handling code here:
-        ID.setText(" ");
+        ID.setText("");
     }//GEN-LAST:event_IDMouseClicked
 
     private void PasswordMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PasswordMouseClicked
         // TODO add your handling code here:
-        Password.setText(" ");
+        Password.setText("");
     }//GEN-LAST:event_PasswordMouseClicked
 
     private void NamaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_NamaMouseClicked
         // TODO add your handling code here:
-        Nama.setText(" ");
+        Nama.setText("");
     }//GEN-LAST:event_NamaMouseClicked
 
     private void EmailMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_EmailMouseClicked
         // TODO add your handling code here:
-        Email.setText(" ");
+        Email.setText("");
     }//GEN-LAST:event_EmailMouseClicked
 
     private void HpMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HpMouseClicked
         // TODO add your handling code here:
-        Hp.setText(" ");
+        Hp.setText("");
     }//GEN-LAST:event_HpMouseClicked
 
     private void RegisButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RegisButtonMouseClicked

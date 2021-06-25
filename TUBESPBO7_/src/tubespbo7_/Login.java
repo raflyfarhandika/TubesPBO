@@ -5,6 +5,12 @@
  */
 package tubespbo7_;
 
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Lenovo
@@ -76,6 +82,11 @@ public class Login extends javax.swing.JFrame {
         });
 
         Login_Button.setText("Login");
+        Login_Button.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Login_ButtonMouseClicked(evt);
+            }
+        });
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(59, 59, 59));
@@ -172,12 +183,12 @@ public class Login extends javax.swing.JFrame {
 
     private void Username_FieldMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Username_FieldMouseClicked
         // TODO add your handling code here:
-        Username_Field.setText(" ");
+        Username_Field.setText("");
     }//GEN-LAST:event_Username_FieldMouseClicked
 
     private void Password_FieldMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Password_FieldMouseClicked
         // TODO add your handling code here:
-        Password_Field.setText(" ");
+        Password_Field.setText("");
     }//GEN-LAST:event_Password_FieldMouseClicked
 
     private void Register_ButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Register_ButtonMouseClicked
@@ -188,6 +199,33 @@ public class Login extends javax.swing.JFrame {
         register.setLocationRelativeTo(null);
         dispose();
     }//GEN-LAST:event_Register_ButtonMouseClicked
+
+    private void Login_ButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Login_ButtonMouseClicked
+        // TODO add your handling code here:
+        
+        try {
+            DB_Connection.Connection();
+            Statement st = DB_Connection.conn.createStatement();
+            String sql = "SELECT * FROM userdata";
+            ResultSet rs = st.executeQuery(sql);
+            
+            while(rs.next()){
+                String id = rs.getString("id");
+                String password = rs.getString("pass");
+                
+                if((Username_Field.getText() == id) && (Password_Field.getText() == password)){
+                    UIHalamanUtama HalamanUtama = new UIHalamanUtama();
+                    HalamanUtama.setVisible(true);
+                    HalamanUtama.pack();
+                    HalamanUtama.setLocationRelativeTo(null);
+                    dispose();
+                    break;
+                }
+            }
+        }catch (SQLException e){
+            JOptionPane.showMessageDialog(null, e.getMessage());
+        }
+    }//GEN-LAST:event_Login_ButtonMouseClicked
 
     /**
      * @param args the command line arguments
